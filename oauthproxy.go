@@ -95,7 +95,7 @@ func NewFileServer(path string, filesystemPath string) (proxy http.Handler) {
 
 func NewOauthProxy(opts *Options, validator func(string) bool) *OauthProxy {
 	serveMux := http.NewServeMux()
-	for _, u := range opts.proxyUrls {
+	for _, u := range opts.proxyURLs {
 		path := u.Path
 		switch u.Scheme {
 		case "http", "https":
@@ -123,7 +123,7 @@ func NewOauthProxy(opts *Options, validator func(string) bool) *OauthProxy {
 		log.Printf("compiled skip-auth-regex => %q", u)
 	}
 
-	redirectUrl := opts.redirectUrl
+	redirectUrl := opts.RedirectURL
 	redirectUrl.Path = fmt.Sprintf("%s/callback", opts.ProxyPrefix)
 
 	log.Printf("OauthProxy configured for %s Client ID: %s", opts.provider.Data().ProviderName, opts.ClientID)

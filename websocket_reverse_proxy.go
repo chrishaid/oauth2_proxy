@@ -85,4 +85,3 @@ func websocketUpgradeRequest(req *http.Request) bool {
 
 	return strings.ToLower(upgradeHeaders[0]) == "websocket"
 }
-Status API Training Shop Blog About Pricing
